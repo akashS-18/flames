@@ -1,0 +1,625 @@
+/* ============================================
+   VALENTINE FLAMES LOVE CALCULATOR - STYLES
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Valentine Color Palette */
+    --pink-primary: #ff6b9d;
+    --pink-light: #ffb3d1;
+    --pink-dark: #ff4d7a;
+    --red-primary: #ff1744;
+    --red-light: #ff6b9d;
+    --purple-primary: #c44569;
+    --purple-light: #f8b5c1;
+    --white-soft: #fff5f8;
+    --white-pure: #ffffff;
+    --shadow-pink: rgba(255, 107, 157, 0.3);
+    --shadow-red: rgba(255, 23, 68, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff1744 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: none; /* Hide default cursor */
+}
+
+/* ============================================
+   CURSOR TRAIL ANIMATION
+   ============================================ */
+
+.cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    user-select: none;
+    will-change: transform;
+}
+
+.cursor-trail.active {
+    opacity: 1;
+}
+
+.cursor-trail.heart-trail {
+    animation: cursorFade 0.8s ease-out forwards;
+}
+
+@keyframes cursorFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3) rotate(180deg);
+    }
+}
+
+/* Custom cursor */
+.custom-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 10000;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, font-size 0.2s ease;
+    user-select: none;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.6));
+}
+
+/* Cursor hover effects on interactive elements */
+button:hover ~ .custom-cursor,
+a:hover ~ .custom-cursor,
+input:hover ~ .custom-cursor {
+    transform: translate(-50%, -50%) scale(1.3);
+    font-size: 28px;
+}
+
+/* ============================================
+   HEART RAIN ANIMATION
+   ============================================ */
+
+.heart-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0;
+    animation: fall linear infinite, fadeInOut 3s ease-in-out infinite;
+    user-select: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   GLASSMORPHISM CONTAINER
+   ============================================ */
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card {
+    padding: 30px 25px;
+}
+
+/* ============================================
+   HEADER & TYPOGRAPHY
+   ============================================ */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--white-pure);
+    text-shadow: 2px 2px 8px var(--shadow-pink);
+    margin-bottom: 10px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.subtitle {
+    color: var(--white-soft);
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ============================================
+   FORM STYLES
+   ============================================ */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: var(--white-pure);
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.input-group input {
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white-pure);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus {
+    border-color: var(--pink-light);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px var(--shadow-pink);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-calculate,
+.btn-back {
+    padding: 16px 30px;
+    background: linear-gradient(135deg, var(--pink-primary), var(--red-primary));
+    border: none;
+    border-radius: 12px;
+    color: var(--white-pure);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-pink);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-calculate::before,
+.btn-back::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-calculate:hover::before,
+.btn-back:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-calculate:hover,
+.btn-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px var(--shadow-red);
+}
+
+.btn-calculate:active,
+.btn-back:active {
+    transform: translateY(-1px);
+}
+
+.btn-calculate span,
+.btn-back span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   INFO SECTION
+   ============================================ */
+
+.info {
+    margin-top: 25px;
+    text-align: center;
+    color: var(--white-soft);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ============================================
+   RESULT PAGE STYLES
+   ============================================ */
+
+.result-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.result-title {
+    font-size: 2rem;
+    color: var(--white-pure);
+    text-shadow: 2px 2px 8px var(--shadow-pink);
+}
+
+.names-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.name-badge {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: var(--white-pure);
+    font-weight: 600;
+    font-size: 1.1rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.heart-connector {
+    font-size: 2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* ============================================
+   LOVE PERCENTAGE METER
+   ============================================ */
+
+.love-meter-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.meter-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.circular-meter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.meter-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.meter-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 12;
+}
+
+.meter-progress {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 534;
+    stroke-dashoffset: 534;
+    transition: stroke-dashoffset 2s ease-out;
+    filter: drop-shadow(0 0 10px var(--pink-primary));
+}
+
+.meter-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.percentage {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white-pure);
+    text-shadow: 2px 2px 8px var(--shadow-pink);
+}
+
+.percentage-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--white-soft);
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/* Gradient Definition for SVG */
+.meter-svg defs {
+    position: absolute;
+}
+
+/* ============================================
+   FLAMES RESULT DISPLAY
+   ============================================ */
+
+.flames-result {
+    text-align: center;
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: resultReveal 0.8s ease-out;
+}
+
+@keyframes resultReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.result-text {
+    font-size: 2.5rem;
+    color: var(--white-pure);
+    text-shadow: 2px 2px 10px var(--shadow-pink);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.result-description {
+    color: var(--white-soft);
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* ============================================
+   SHARE SECTION
+   ============================================ */
+
+.share-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.share-section h3 {
+    color: var(--white-pure);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 5px var(--shadow-pink);
+}
+
+.share-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-share {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    color: var(--white-pure);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    min-width: 140px;
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.btn-instagram {
+    background: linear-gradient(135deg, #E4405F, #C13584);
+}
+
+.btn-share:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-share:active {
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .result-title {
+        font-size: 1.5rem;
+    }
+
+    .result-text {
+        font-size: 2rem;
+    }
+
+    .glass-card {
+        padding: 30px 20px;
+    }
+
+    .meter-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .percentage {
+        font-size: 2rem;
+    }
+
+    .names-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .heart-connector {
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 400px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .share-buttons {
+        flex-direction: column;
+    }
+
+    .btn-share {
+        width: 100%;
+    }
+}
+
+/* Disable cursor trail on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    body {
+        cursor: default;
+    }
+    
+    .custom-cursor {
+        display: none;
+    }
+    
+    .cursor-trail {
+        display: none;
+    }
+}

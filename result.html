@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your FLAMES Result 💖 | Love Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Heart Rain Container -->
+    <div class="heart-rain" id="heartRain"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="glass-card result-card">
+            <div class="result-header">
+                <h1 class="result-title">Your Love Result 💕</h1>
+            </div>
+
+            <div class="names-display">
+                <div class="name-badge">
+                    <span id="displayName1"></span>
+                </div>
+                <div class="heart-connector">❤️</div>
+                <div class="name-badge">
+                    <span id="displayName2"></span>
+                </div>
+            </div>
+
+            <!-- Love Percentage Meter -->
+            <div class="love-meter-container">
+                <div class="meter-wrapper">
+                    <div class="circular-meter">
+                        <svg class="meter-svg" viewBox="0 0 200 200">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff6b9d" />
+                                    <stop offset="100%" stop-color="#ff1744" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="meter-bg" cx="100" cy="100" r="85"></circle>
+                            <circle class="meter-progress" id="meterProgress" cx="100" cy="100" r="85"></circle>
+                        </svg>
+                        <div class="meter-content">
+                            <span class="percentage" id="lovePercentage">0%</span>
+                            <span class="percentage-label">Compatibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLAMES Result -->
+            <div class="flames-result">
+                <div class="result-icon" id="resultIcon">💖</div>
+                <h2 class="result-text" id="resultText">LOVERS</h2>
+                <p class="result-description" id="resultDescription">
+                    You two are meant to be lovers! Your connection is deep and romantic.
+                </p>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="share-section">
+                <h3>Share Your Result 💌</h3>
+                <div class="share-buttons">
+                    <button class="btn-share btn-whatsapp" id="whatsappShare">
+                        <span>📱 WhatsApp</span>
+                    </button>
+                    <button class="btn-share btn-instagram" id="instagramShare">
+                        <span>📸 Instagram</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <button class="btn-back" onclick="window.location.href='index.html'">
+                <span>Calculate Again 💕</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
